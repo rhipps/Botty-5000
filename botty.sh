@@ -17,7 +17,7 @@ function stop_botty {
 
 function start_botty {
   echo "Starting Botty Process..."
-  python3 brains.py &
+  python3 brains.py > /dev/null &
   find_botty
   if [ ! -z "$BOTTYPID" ]; then
     echo "Found Botty process @PID: $BOTTYPID"
