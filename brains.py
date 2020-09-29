@@ -1,4 +1,4 @@
-from quandl_commands import execute_quandl_command, quandl_command_pattern
+from yfin_commands import execute_yfin_command, yfin_command_pattern
 from discord.ext import commands
 import json
 import random
@@ -30,10 +30,10 @@ def message_is_in_trigger(message, listOfPhrases):
 
 def process_response_commands(response):
     if does_command_exist_pattern.search(response):
-        command = quandl_command_pattern.search(response).group(1)
+        command = yfin_command_pattern.search(response).group(1)
         args = command_args_pattern.search(command).group(1)
-        if 'quandl' in command:
-            result = execute_quandl_command(command[:command.index('(')], args.split(','))
+        if 'yfin' in command:
+            result = execute_yfin_command(command[:command.index('(')], args.split(','))
             response = re.sub(r"""\{.*\}""", str(result), response)
 
     return response
@@ -60,11 +60,6 @@ async def commands(ctx):
     commands_to_say = commands_to_say + '```'
     response = response + commands_to_say + '**Example:** ' + BOTTY_5000_TRIGGER + ', ' + chat_triggers[0][0]
     await ctx.send(response)
-
-#https://store.steampowered.com/app/976730/ this is the store page
-#https://store.steampowered.com/api/appdetails?appids=976730 this is the store api
-#Fields we care about {name, is_free, controller_support, price_in_cents, price_in_cents_with_discount}
-#we should save the app id once its put in
 
 @client.event
 async def on_message(message):
