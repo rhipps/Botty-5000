@@ -3,7 +3,6 @@
 When adding a command into a Botty response it must first be surrounded by `{}` characters. Then you build the command
 in 3 parts. `<command_prefix>_<command>(<comma seperated arguments>)`
 
-
 ##### yahoo finance get price example
 In this example we are expanding our shrimp pricing to get today's high price for the ticker `SHMP`.
 ```

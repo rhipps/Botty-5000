@@ -1,5 +1,8 @@
 ### Botty-5000
 
+* [How to configure Botty response commands](response_commands.md)
+* [How to set Botty up as a service on Raspberry Pi Zeros](raspberrypi_zero_service.md)
+
 To run Botty-5000, run the `botty.sh` file after installing dependencies. You will need to create 2 files.
 
 * props.json

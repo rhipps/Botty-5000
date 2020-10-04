@@ -1,6 +1,6 @@
 function find_botty {
   echo "Finding Botty process..."
-  BOTTYPID=$(pgrep -f "python3 brains.py")
+  BOTTYPID=$(pgrep -f "python3 -u brains.py")
   export BOTTYPID
 }
 
@@ -17,7 +17,7 @@ function stop_botty {
 
 function start_botty {
   echo "Starting Botty Process..."
-  python3 brains.py > /dev/null &
+  python3 -u brains.py > /dev/null &
   find_botty
   if [ ! -z "$BOTTYPID" ]; then
     echo "Found Botty process @PID: $BOTTYPID"
