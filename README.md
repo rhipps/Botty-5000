@@ -15,13 +15,15 @@ Props.json has three possible properties right now
 * bot-chat-trigger - When you talk to botty it needs to start with this string
 * bot-command-prefix - All commands for Botty must start with this string
 * bot-key - Discord bot key that gives Botty-5000 access to your channel
+* log-level - How much Botty logs things out to `BottyLog.log` go here for info [Botty Logging](#Botty-Logging)
 
 ##### example
 ```
 {
   "bot-chat-trigger": "Hey Botty",
   "bot-command-prefix": "Botty-",
-  "bot-key": "123456789123456"
+  "bot-key": "123456789123456",
+  "log-level": "INFO"
 }
 ```
 
@@ -47,6 +49,12 @@ Currently Botty supports plain text responses and response commands found **[her
 ```
 Using the above configuration we could trigger botty by saying `Hey Botty, wut da shrimp worth?` or `Hey Botty, how much should I shell out?`
 etc.
+
+#### Botty Logging
+Botty logs out to a file called `BottyLog.log` in the project directory and does so on a rolling basis. Botty logs roll over 
+every day at midnight and store up to the last 5 days.
+
+Log levels can be found in the python documentation https://docs.python.org/3/library/logging.html#levels
 
 # Supported Bot Commands
 * `Botty-ping` - Botty will say something back in the channel you talk to him in. Using the above props file. .
