@@ -16,6 +16,7 @@ Props.json has three possible properties right now
 * bot-command-prefix - All commands for Botty must start with this string
 * bot-key - Discord bot key that gives Botty-5000 access to your channel
 * log-level - How much Botty logs things out to `BottyLog.log` go here for info [Botty Logging](#Botty-Logging)
+* pi-zero-leds - Turns on LED features for Botty
 
 ##### example
 ```
@@ -23,7 +24,8 @@ Props.json has three possible properties right now
   "bot-chat-trigger": "Hey Botty",
   "bot-command-prefix": "Botty-",
   "bot-key": "123456789123456",
-  "log-level": "INFO"
+  "log-level": "INFO",
+  "pi-zero-leds": false
 }
 ```
 

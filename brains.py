@@ -1,5 +1,6 @@
 from yfin_commands import execute_yfin_command, yfin_command_pattern
 from discord.ext import commands
+from gpiozero import LED
 import json
 import random
 import re
@@ -24,7 +25,11 @@ chat_responses = list()
 does_command_exist_pattern = re.compile(r"""\{.*\}""")
 command_args_pattern = re.compile(r"""\((.*)\)""")
 BOTTY_5000_TRIGGER = props['bot-chat-trigger']
+RASPBERRY_PI_ZERO = props['pi-zero-leds']
 
+if RASPBERRY_PI_ZERO:
+    eyes = LED(22)
+    head_lamp = LED(23)
 
 with open('./chat_responses.json') as chat_response_file:
     chat_data = json.load(chat_response_file)
@@ -50,8 +55,19 @@ def process_response_commands(response):
     return response
 
 
+def toggle_eyes():
+    if RASPBERRY_PI_ZERO:
+        logger.debug("Botty's eyes toggled")
+        eyes.toggle()
+
+
 @client.event
 async def on_ready():
+
+    if RASPBERRY_PI_ZERO:
+        logger.debug("Botty's headlamp is on")
+        head_lamp.on()
+
     logger.info("Brains are warm")
 
 
@@ -81,9 +97,11 @@ async def on_message(message):
         logger.info('Bot Chat from {author} in {channel} saying [{message}]'.format(author=message.author, channel=channel, message=message_content.replace(BOTTY_5000_TRIGGER.lower(), '')))
         for idx, triggers in enumerate(chat_triggers):
             if message_is_in_trigger(message_content, triggers):
+                toggle_eyes()
                 response = random.choice(chat_responses[idx])
                 response = process_response_commands(response)
                 await channel.send(response)
+                toggle_eyes()
 
     await client.process_commands(message)
 client.run(props['bot-key'])
