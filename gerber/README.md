@@ -5,7 +5,7 @@ and ordered from https://jlcpcb.com/ using these files you can solder together a
 Botty is wired up so that his head lamp is always on and that his eyes blink when a command
 is being processed.
 
-<img src="BottyFacePCB.png" width="200" height="300">
+<img src="BottyFacePCB.png" width="400" height="400">
 
 The Traces are for the following
 * H - Botty's head lamp LED from Pi Zero's GPIO 23 pin
@@ -13,5 +13,5 @@ The Traces are for the following
 * π - Connects ground to the Pi Zero's ground
 
 #### Wired up
-<img src="BottyFacePCBFront.jpg" width="200" height="300">
-<img src="BottyFacePCBBack.jpg" width="200" height="300">
+<img src="BottyFacePCBFront.jpg" width="300" height="300">
+<img src="BottyFacePCBBack.jpg" width="300" height="300">

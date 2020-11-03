@@ -1,6 +1,6 @@
 ### Botty-5000
 
-![This is Botty](BottyGlamourShot.jpg)
+<img src="BottyGlamourShot.jpg" width="500" height="600">
 
 * [How to configure Botty response commands](response_commands.md)
 * [How to set Botty up as a service on Raspberry Pi Zeros](raspberrypi_zero_service.md)
