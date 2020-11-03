@@ -1,5 +1,7 @@
 ### Botty-5000
 
+![This is Botty](BottyGlamourShot.jpg)
+
 * [How to configure Botty response commands](response_commands.md)
 * [How to set Botty up as a service on Raspberry Pi Zeros](raspberrypi_zero_service.md)
 * [How to wire up Botty's Face](gerber/README.md)
