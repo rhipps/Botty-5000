@@ -5,6 +5,7 @@ and ordered from https://jlcpcb.com/ using these files you can solder together a
 Botty is wired up so that his head lamp is always on and that his eyes blink when a command
 is being processed.
 
+This example image is out of date
 <img src="BottyFacePCB.png" width="400" height="400">
 
 The Traces are for the following
